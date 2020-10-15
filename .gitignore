@@ -1,1 +1,3 @@
 .vscode
+/node_modules
+/simple-pre-loader
