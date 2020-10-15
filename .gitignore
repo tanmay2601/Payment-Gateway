@@ -1,3 +1,4 @@
-.vscode
 /node_modules
-/simple-pre-loader
+npm-debug.log
+.DS_Store
+/*.env
