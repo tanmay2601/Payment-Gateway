@@ -1,23 +1,26 @@
 <%- include('partials/header.html') %>
 <div class="se-pre-con"></div>
-<div class="container third">
-  <h1 class="text-center text-dark" style="padding-top: 30px;">Instamojo Payment</h1>
-  <form action="/pay" method="POST" style="padding-top: 20px;">
-    <div class="form-group">
-      <input type="text" class="form-control" required name="name" id="" placeholder="Name" />
-    </div>
-    <div class="form-group">
-      <input type="email" class="form-control" required name="email" id="" placeholder="Email" />
-    </div>
-    <div class="form-group">
-      <input type="number" class="form-control" required name="amount" id="" placeholder="Amount" />
-    </div>
-    <div class="form-group">
-      <button  class="btn btn-danger btn-block form-control">
-        Create Payment Link
-      </button>
-    </div>
-  </form>
+<div style="padding-left:10px; padding-right: 10px;">
+  <div class="container third">
+    <h1 class="text-center text-dark" style="padding-top: 30px;">Instamojo Payment</h1>
+    <form action="/pay" method="POST" style="padding-top: 20px;">
+      <div class="form-group">
+        <input type="text" class="form-control" required name="name" id="" placeholder="Name" />
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" required name="email" id="" placeholder="Email" />
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" required name="amount" id="" placeholder="Amount" />
+      </div>
+      <div class="form-group">
+        <button  class="btn btn-danger btn-block form-control">
+          Create Payment Link
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
 
 <%- include('partials/footer.html') %>
