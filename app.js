@@ -3,10 +3,11 @@ var app = express();
 var bodyparser = require("body-parser");
 var mongoose = require("mongoose");
 var Insta = require("instamojo-nodejs");
+var json = require('json');
 
-var API_KEY = "test_f4af45051ca7a9fdc1756caf474";
+var API_KEY = "test_f4af45051ca7a9fdc1756caf474" ;
 
-var AUTH_KEY = "test_9b2e54ff55e2b03d1af3afedfe3";
+var AUTH_KEY = "test_9b2e54ff55e2b03d1af3afedfe3" ;
 
 Insta.setKeys(API_KEY, AUTH_KEY);
 
@@ -29,7 +30,7 @@ app.post('/pay', function (req, res) {
 
     var data = new Insta.PaymentData();
 
-    const REDIRECT_URL = "https://shrouded-basin-46103.herokuapp.com/success";
+    const REDIRECT_URL = "http://localhost:3000/success/name/amount";
 
     data.setRedirectUrl(REDIRECT_URL);
     data.send_email = "True";
@@ -43,15 +44,22 @@ app.post('/pay', function (req, res) {
             // some error
             console.log(err);
         } else {
+            console.log(response);
+            console.log(data);
+            const x = JSON.parse(response);
+            const y = x.payment_request.longurl;
             // Payment redirection link at response.payment_request.longurl
-            res.send("Please check your email to make payment");
+            
+            res.redirect(y);
         }
     });
 });
 
 
-app.get('/success',function(req,res){
-    res.send("Please check your email for Payment Invoice if transaction is successfull");
+app.get('/success/:name/:amount',function(req,res){
+    const z = req.query.payment_id;
+    const q = req.query.payment_status;
+    res.render('success.ejs',{id:z,status:q});
 });
 
 
