@@ -30,7 +30,7 @@ app.post('/pay', function (req, res) {
 
     var data = new Insta.PaymentData();
 
-    const REDIRECT_URL = "http://localhost:3000/success/name/amount";
+    const REDIRECT_URL = "http://localhost:3000/success";
 
     data.setRedirectUrl(REDIRECT_URL);
     data.send_email = "True";
@@ -56,10 +56,9 @@ app.post('/pay', function (req, res) {
 });
 
 
-app.get('/success/:name/:amount',function(req,res){
-    const z = req.query.payment_id;
-    const q = req.query.payment_status;
-    res.render('success.ejs',{id:z,status:q});
+app.get('/success',function(req,res){
+
+    res.render('success.ejs');
 });
 
 
