@@ -30,7 +30,7 @@ app.post('/pay', function (req, res) {
 
     var data = new Insta.PaymentData();
 
-    const REDIRECT_URL = "http://localhost:3000/success";
+    const REDIRECT_URL = "https://shrouded-basin-46103.herokuapp.com/success";
 
     data.setRedirectUrl(REDIRECT_URL);
     data.send_email = "True";
