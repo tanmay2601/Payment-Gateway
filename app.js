@@ -5,9 +5,9 @@ var mongoose = require("mongoose");
 var Insta = require("instamojo-nodejs");
 var json = require('json');
 
-var API_KEY = "test_f4af45051ca7a9fdc1756caf474" ;
+var API_KEY = "test_f4af45051ca7a9fdc1756caf474";
 
-var AUTH_KEY = "test_9b2e54ff55e2b03d1af3afedfe3" ;
+var AUTH_KEY = "test_9b2e54ff55e2b03d1af3afedfe3";
 
 Insta.setKeys(API_KEY, AUTH_KEY);
 
@@ -30,7 +30,7 @@ app.post('/pay', function (req, res) {
 
     var data = new Insta.PaymentData();
 
-    const REDIRECT_URL = "https://shrouded-basin-46103.herokuapp.com/success";
+    const REDIRECT_URL = "https://shrouded-basin-46103.herokuapp.com /success";
 
     data.setRedirectUrl(REDIRECT_URL);
     data.send_email = "True";
@@ -49,14 +49,14 @@ app.post('/pay', function (req, res) {
             const x = JSON.parse(response);
             const y = x.payment_request.longurl;
             // Payment redirection link at response.payment_request.longurl
-            
+
             res.redirect(y);
         }
     });
 });
 
 
-app.get('/success',function(req,res){
+app.get('/success', function (req, res) {
 
     res.render('success.ejs');
 });
